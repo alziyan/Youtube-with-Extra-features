@@ -22,6 +22,8 @@ const Head = () => {
     // console.log("API Call- " + searchQuery);
     const data = await fetch(YOUTUBE_SEARCH_API + searchQuery);
     const json = await data.json();
+    // console.log("searchResult", json
+
     setSuggestion(json[1]);
   };
 
@@ -61,7 +63,7 @@ const Head = () => {
             🔍
           </button>
         </div>
-        {showSuggestion && (
+        {suggestion.length == 0 ? null : (
           <div className="fixed opacity-95 bg-white py-2 px-5 shadow-lg rounded-lg border border-gray-100 w-[32rem]">
             <ul>
               {suggestion.map((s) => (
